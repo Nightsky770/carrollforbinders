@@ -3,10 +3,11 @@
 a5paper,
 ]{scrbook} 
 
-\usepackage{bindery}
+\title{Through the Looking-Glass}
+
+\usepackage[namedChapters]{bindery}
 \usepackage{illustrations}
 \usepackage{dropcaps}
-\usepackage{verse}
 \usepackage{chessboard}
 \usepackage{adjustbox}
 
@@ -14,36 +15,7 @@ a5paper,
 
 \setdropcaps{Roycroft Initials.ttf}
 
-\makeatletter
-\@ifundefined{ifpictures}{\newif\ifpictures}{}
-\makeatother
-\picturestrue
-%\picturesfalse
-
-\ifpictures
-    \includecomment{pictures}
-    \excludecomment{placeholder}
-\else
-    \excludecomment{pictures}
-    \includecomment{placeholder}
-\fi
-
-
-%\BeforeTOCHead[toc]{%
-%  \KOMAoptions{parskip=false}% no parskip in ToC
-%  \RedeclareSectionCommand[afterskip=1sp minus 1sp]{chapter}% no skip after ToC title
-%}
-%\BeforeTOCHead[tocline]{%
-%  \KOMAoptions{parskip=false,numwidth=0}% no parskip in ToC
-%  \RedeclareSectionCommand[afterskip=1sp minus 1sp]{chapter}% no skip after ToC title
-%}
-
-
-\automark{chapter}
-\lehead{Through the Looking-Glass}
-\rohead{\leftmark}
-\flushbottom
-
+\DeclareTOCStyleEntry[linefill=\TOCLineLeaderFill]{chapter}{chapter}
 
 \hyphenation{}
 
@@ -61,12 +33,11 @@ a5paper,
 %\cleardoubleoddpage
 \KOMAoptions{headings=openright}
 
-\begin{pictures}
 \pagestyle{empty}
 
-\includepdf[width=1.2\textwidth]{titlepage.jpg}
+\includepdf[width=\basicwidth]{titlepage.jpg}
 \clearpage
-\end{pictures}
+
 
 
 	\pagestyle{plain}
@@ -112,7 +83,7 @@ a5paper,
 
 \vfill
 \begin{minipage}{\textwidth}
-\textit{Through the Looking Glass} was first published in December 1871 by Macmillan in London (UK). Like its predecessor \textit{Alice's Adventures in Wonderland}, author Charles Lutwidge Dodgson (1832\textendash 1898), a maths professor at Oxford University, wrote it for the middle daughter of his close friend Henry Lidell (Alice Lidell, 10 when \textit{Alice's Adventures in Wonderland} was written) and published it under his pen name »Lewis Carroll«.
+\textit{Through the Looking-Glass} was first published in December 1871 by Macmillan in London (UK). Like its predecessor \textit{Alice's Adventures in Wonderland}, author Charles Lutwidge Dodgson (1832--1898), a maths professor at Oxford University, wrote it for the middle daughter of his close friend Henry Liddell (Alice Liddell, 10 when \textit{Alice's Adventures in Wonderland} was written) and published it under his pen name <Lewis Carroll>.
 \end{minipage}
 \vfill
 gutenberg.org/ebooks/12
@@ -120,7 +91,7 @@ gutenberg.org/ebooks/12
 \divider
 \vfill
 \begin{minipage}{\textwidth}
-Text is set in »EB Garamond,« Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. Chapter dropcaps are set in »Roycroft Initials«, by Dieter Steffmann. Title page is set in »Fantaisie Artistique,« by George Williams. 
+Text is set in <EB Garamond,> Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. Chapter dropcaps are set in <Roycroft Initials>, by Dieter Steffmann. Title page is set in <Fantaisie Artistique,> by George Williams. 
 \end{minipage}
 \vfill
 github.com/georgd/EB-Garamond\\steffmann.de
