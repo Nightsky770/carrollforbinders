@@ -3,70 +3,61 @@
 a5paper,
 ]{scrbook} 
 
-\usepackage{bindery}
+\title{Alice's Adventures in Wonderland}
+
+
+\usepackage[namedChapters]{bindery}
 \usepackage{illustrations}
 \usepackage{dropcaps}
-\usepackage{verse}
 
-\makeatletter
-\@ifundefined{ifpictures}{\newif\ifpictures}{}
-\makeatother
-\picturestrue
-%\picturesfalse
 
 
 \setdropcaps{Roycroft Initials.ttf}
 
-\ifpictures
-    \includecomment{pictures}
-    \excludecomment{placeholder}
-\else
-    \excludecomment{pictures}
-    \includecomment{placeholder}
-\fi
-
-
-\KOMAoption{toc}{flat}
 \DeclareTOCStyleEntry[linefill=\TOCLineLeaderFill]{chapter}{chapter}
 
-
-\automark{chapter}
-\lehead{Alice's Adventures in Wonderland}
-\rohead{\leftmark}
-\flushbottom
 
 
 \hyphenation{}
 
 \begin{document}
 \frontmatter
-\begin{pictures}
+
 \pagestyle{empty}
 
-\includepdf[width=1.2\textwidth]{titlepage.jpg}
+\includepdf[width=\basicwidth]{titlepage.jpg}
 \clearpage
-\end{pictures}
+
+
 
 \KOMAoptions{headings=openright}
+
 	\pagestyle{plain}
-\begin{pictures}
-	\begin{letter}
-		\begin{colorbigpic}
-			[0.9]
-			{aliceportrait}
-			{}
-		\end{colorbigpic}
-	\end{letter}
-	
-	\begin{a4}
-		\begin{colorbigpic}
-			[0.8]
-			{aliceportrait}
-			{}
-		\end{colorbigpic}	
-	\end{a4}	
-	\clearpage
-\end{pictures}
+
+%\begin{letter}	
+%	\begin{figure}[p]
+%  \centering
+%  \includegraphics[width=0.9\textwidth]{aliceportrait}
+%\end{figure}
+%\end{letter}
+
+\begin{letter}
+	\begin{colorbigpic}
+		[0.8]
+		{aliceportrait}
+	\end{colorbigpic}
+\end{letter}
+
+
+\begin{a4}
+	\begin{colorbigpic}
+		[0.8]
+		{aliceportrait}
+	\end{colorbigpic}	
+\end{a4}	
+\clearpage
+
+
 \tableofcontents
 
 
@@ -75,23 +66,14 @@ a5paper,
 \include{chapters/poem.tex}
  
 \cleardoubleevenpage
-\begin{pictures}
-	\begin{letter}
-		\begin{colorbigpic}
-			[1.1]
-			{whiterabbit}
-			{Suddenly a White Rabbit with pink eyes ran close by her}
-		\end{colorbigpic}
-	\end{letter}
-	
-	\begin{a4}
-		\begin{colorbigpic}
-			[1.0]
-			{whiterabbit}
-			{Suddenly a White Rabbit with pink eyes ran close by her}
-		\end{colorbigpic}	
-	\end{a4}
-\end{pictures}
+
+\begin{colorbigpic}
+	[\basicscale]
+	{whiterabbit}
+	[Suddenly a White Rabbit with pink eyes ran close by her]
+\end{colorbigpic}
+
+
 
 \mainmatter
 \pagestyle{headings}
@@ -125,7 +107,7 @@ a5paper,
 
 \vfill
 \begin{minipage}{\textwidth}
-\textit{Alice's Adventures in Wonderland} was first published in November 1865 by Macmillan in London (UK). Charles Lutwidge Dodgson (1832--1898), a maths professor at Oxford University, wrote it for the middle daughter of his close friend Henry Lidell (Alice Lidell, 10 at the time) and published it under his pen name »Lewis Carroll«.
+\textit{Alice's Adventures in Wonderland} was first published in November 1865 by Macmillan in London (UK). Charles Lutwidge Dodgson (1832--1898), a maths professor at Oxford University, wrote it for the middle daughter of his close friend Henry Liddell (Alice Liddell, 10 at the time) and published it under his pen name <Lewis Carroll>.
 \end{minipage}
 \vfill
 gutenberg.org/ebooks/28885
@@ -139,7 +121,7 @@ Illustrations by Arthur Rackham (1867--1939) are from a 1907 edition published b
 \divider
 \vfill
 \begin{minipage}{\textwidth}
-Text is set in »EB Garamond,« Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. Title page is set in »Fantaisie Artistique,« by George Williams. Chapter dropcaps are set in »Roycroft Initials«, by Dieter Steffmann.
+Text is set in <EB Garamond,> Georg Mayr-Duffner's free and open source implementation of Claude Garamond’s famous humanist typefaces from the mid-sixteenth century. Title page is set in <Fantaisie Artistique,> by George Williams. Chapter dropcaps are set in <Roycroft Initials>, by Dieter Steffmann.
 \end{minipage}
 \vfill
 github.com/georgd/EB-Garamond\\steffmann.de
@@ -147,7 +129,7 @@ github.com/georgd/EB-Garamond\\steffmann.de
 \divider
 \vfill
 \begin{minipage}{\textwidth}
-The Mouse's Tale in chapter 3 was typeset by Peter R. Wilson and Will Robertson, creator and maintainer (respectively) of the \LaTeX{} »verse« package. With the exception of the Mouse's Tale, which is released under a \LaTeX{} Project Public License, this typeset is dedicated to the public domain under a Creative Commons CC0 1.0 Universal deed. 
+The Mouse's Tale in chapter 3 was typeset by Peter R. Wilson and Will Robertson, creator and maintainer (respectively) of the \LaTeX{} <verse> package. With the exception of the Mouse's Tale, which is released under a \LaTeX{} Project Public License, this typeset is dedicated to the public domain under a Creative Commons CC0 1.0 Universal deed. 
 \end{minipage}
 \vfill
 creativecommons.org/publicdomain/zero/1.0/\\latex-project.org/lppl/
@@ -156,4 +138,5 @@ creativecommons.org/publicdomain/zero/1.0/\\latex-project.org/lppl/
 \vfill
 Typeset in \LaTeX{}. Last revised \today.
 \thispagestyle{empty}
+\typeout{Default font features: \meaning\defaultfontfeatures}
 \end{document}
